@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <title>Accueil</title>
+    <link href="/css/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main-page">
+        <div class="container">
+            <h1 th:inline="text">Bonjour <span th:remove="tag" sec:authentication="name">utilisateur</span> !</h1>
+            <img src="/img/login.gif" alt="Une dame qui sert la main à son ordinateur."/>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" class="input-button" value="Se déconnecter" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
