@@ -1,11 +1,11 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker {image 'maven:3.9.9-eclipse-temurin-21-alpine'}  }
+    agent none  // Avoid using a global agent at the pipeline level
     stages {
-        stage('build') {
+        stage('Build') {
+            agent { docker 'maven:3.9.3-eclipse-temurin-17' }
             steps {
                 sh 'mvn --version'
             }
         }
-    }
 }
